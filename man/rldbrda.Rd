@@ -2,21 +2,51 @@
 % Please edit documentation in R/rldbrda.R
 \name{rldbrda}
 \alias{rldbrda}
-\title{RLdbRDA}
+\title{Distance-Based Redundancy Analysis Workflow}
 \usage{
 rldbrda(df, meta, method = "bray", p_cutoff = 0.05)
 }
 \arguments{
-\item{df}{The input data}
+\item{df}{A numeric matrix or dataframe with rows as samples and columns as
+species/variables for which the distance matrix will be computed. Assumed to be
+the community data.}
 
-\item{meta}{The corresponding metadata}
+\item{meta}{A dataframe where rows correspond to the samples in 'df' and columns
+contain metadata variables.}
+
+\item{method}{Optional; a character string indicating the distance measure to be used
+(e.g., "bray" for Bray-Curtis dissimilarity). Default is "bray".}
+
+\item{p_cutoff}{Optional; a significance level for determining which metadata
+variables to include in subsequent analysis. Default is 0.05.}
 }
 \value{
-a dataframe with the output
+A dataframe with combined R-squared and cumulative R-squared values for
+  significant metadata variables. The dataframe is ordered by R-squared values
+  (decreasing) and adjusted cumulative R-squared values.
 }
 \description{
-Do dbRDA analysis of a dataset and metadata
+This function executes a full db-RDA analysis on a given dataset and its corresponding
+metadata. It first validates the input, calculates pairwise distances using the vegdist
+function, determines the R-squared values for each metadata variable, filters
+variables based on a significance cutoff, and then performs cumulative db-RDA on
+significant variables. It returns a dataframe combining both the individual and
+cumulative results.
 }
 \examples{
 library(RLdbRDA)
+library(vegan)
+
+data(varespec)
+data(varechem)
+
+out <- rldbrda(varespec, varechem)
+out
+
+plot_data <- prepare_plot_data(out)
+plot_data
+
+g <- plot_dbrda(plot_data)
+g
+
 }

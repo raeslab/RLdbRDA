@@ -1,7 +1,7 @@
+devtools::load_all()
+
 library(RLdbRDA)
 library(vegan)
-
-devtools::load_all()
 
 data(varespec)
 data(varechem)

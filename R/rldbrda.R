@@ -107,20 +107,23 @@ get_r2 <- function(distmat, meta) {
 #' @importFrom vegan capscale
 #' @importFrom vegan ordiR2step
 get_cumul <- function(distmat, meta) {
-
   mod0=capscale(distmat ~ 1) #H0: unconstrained ordination
   mod1=capscale(distmat ~ ., data=meta) #H1: full constrained ordination, all metadata
+
 
   attach(meta)
 
   step.res<-ordiR2step(mod0, scope=formula(mod1), data=meta ,direction="forward", Pin = 1, R2scope = TRUE, pstep = 100, perm.max = 999, permutations=9999, trace = F) #forward stepwise dbRDA
   res=step.res$anova
+
+
   row.names(res)=gsub(pattern="\\+ ", "",row.names(res))
   colnames(res)=gsub(pattern="Pr\\(>F\\)", "pval", colnames(res)) # replace column name
   colnames(res)=paste0("RDAcumul_",colnames(res))
   res[,"RDAcumul_N"]=nrow(meta)
 
   detach(meta)
+
 
   return(res)
 }
@@ -178,8 +181,20 @@ combine_data <- function(r2, cumul){
 #' @importFrom vegan vegdist
 #' @export
 #' @examples
-#' # To perform a db-RDA analysis with example data 'df' and 'meta':
-#' res <- rldbrda(df, meta, method = "bray", p_cutoff = 0.05)
+#' library(RLdbRDA)
+#' library(vegan)
+#'
+#' data(varespec)
+#' data(varechem)
+#'
+#' out <- rldbrda(varespec, varechem)
+#' out
+#'
+#' plot_data <- prepare_plot_data(out)
+#' plot_data
+#'
+#' g <- plot_dbrda(plot_data)
+#' g
 #'
 rldbrda <- function(df, meta, method="bray", p_cutoff=0.05) {
 
@@ -202,9 +217,46 @@ rldbrda <- function(df, meta, method="bray", p_cutoff=0.05) {
   return(out)
 }
 
-#' @import dplyr
+#' Prepare Data for Plotting db-RDA Results
+#'
+#' This function takes the combined db-RDA results and prepares them for visualization
+#' by restructuring the data, imputing missing values, and adding aesthetics
+#' to indicate the significance of features.
+#'
+#' @param dbrda_data A dataframe from the output of `rldbrda` function containing
+#'   R-squared and cumulative R-squared values for metadata variables.
+#'
+#' @return A tidied long-form dataframe suitable for plotting with `ggplot2`.
+#'   Columns are as follows:
+#'   - `rowname`: Factor indicating the metadata variables in the order of R-squared values.
+#'   - `variable`: Character, either 'r2adj' for adjusted R-squared or 'RDAcumul_R2.adj'
+#'     for cumulative adjusted R-squared.
+#'   - `value`: Numeric, the R-squared value associated with `variable`.
+#'   - `significant`: Logical, indicating whether the variable is significant based on
+#'     the presence of NAs replaced with the maximum R2 value.
+#'
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
+#' @importFrom dplyr mutate
+#' @importFrom magrittr %>%
 #' @importFrom tidyr pivot_longer
 #' @importFrom tibble rownames_to_column
+#' @examples
+#' library(RLdbRDA)
+#' library(vegan)
+#'
+#' data(varespec)
+#' data(varechem)
+#'
+#' out <- rldbrda(varespec, varechem)
+#' out
+#'
+#' plot_data <- prepare_plot_data(out)
+#' plot_data
+#'
+#' g <- plot_dbrda(plot_data)
+#' g
+#'
 #' @export
 prepare_plot_data <- function(dbrda_data) {
   # Define the order of the y-axis
@@ -229,8 +281,42 @@ prepare_plot_data <- function(dbrda_data) {
   return(plot_data)
 }
 
+#' Visualize db-RDA Effect Sizes
+#'
+#' This function creates a horizontal bar plot to visualize the effect sizes from
+#' db-RDA analysis. Features (variables) are displayed on the y-axis and their
+#' effect sizes on the x-axis. The plot differentiates between individual adjusted
+#' R-squared values and cumulative R-squared values, and indicates the significance
+#' of features.
+#'
+#' @param plot_data A long-form dataframe prepared by `prepare_plot_data` containing
+#'   the variables with their effect sizes and an indicator for significance.
+#'   Expected columns are 'rowname' for features, 'variable' for effect type,
+#'   'value' for effect size, and 'significant' for significance indication.
+#'
+#' @return A ggplot object representing the horizontal bar plot of effect sizes.
+#'   Bars are filled differently for R-squared and cumulative R-squared values
+#'   and semi-transparent if the feature is not significant.
+#'
 #' @import ggplot2
 #' @export
+#'
+#' @examples
+#' library(RLdbRDA)
+#' library(vegan)
+#'
+#' data(varespec)
+#' data(varechem)
+#'
+#' out <- rldbrda(varespec, varechem)
+#' out
+#'
+#' plot_data <- prepare_plot_data(out)
+#' plot_data
+#'
+#' g <- plot_dbrda(plot_data)
+#' g
+#'
 plot_dbrda <- function(plot_data) {
   # Plot the data as a horizontal bar plot
   g <- ggplot(data = plot_data, aes(x = value, y = rowname, fill = variable)) +

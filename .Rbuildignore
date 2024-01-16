@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 example.R
 docs/
+^\.github$
