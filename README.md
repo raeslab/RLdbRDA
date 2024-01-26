@@ -1,5 +1,5 @@
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/raeslab/RLdbRDA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/raeslab/RLdbRDA/actions/workflows/R-CMD-check.yaml)[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![R-CMD-check](https://github.com/raeslab/RLdbRDA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/raeslab/RLdbRDA/actions/workflows/R-CMD-check.yaml) [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 <!-- badges: end -->
 
 # RLdbRDA: RaesLab distance-based Redundancy Analysis
@@ -53,11 +53,11 @@ g
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Any contributions you make are **greatly appreciated**.
 
   * Found a bug or have some suggestions? Open an [issue](https://github.com/raeslab/RLdbRDA/issues).
   * Pull requests are welcome! Though open an [issue](https://github.com/raeslab/RLdbRDA/issues) first to discuss which features/changes you wish to implement.
 
 ## Contact
 
-RLdbRDA was developed by [Sebastian Proost](https://sebastian.proost.science/) at the [RaesLab](https://raeslab.sites.vib.be/en) and was adopted from code written by [Sara Vieira-Silva](https://saravsilva.github.io/).
+RLdbRDA was developed by [Sebastian Proost](https://sebastian.proost.science/) at the [RaesLab](https://raeslab.sites.vib.be/en) and was adopted from code written by [Sara Vieira-Silva](https://saravsilva.github.io/). RLdbRDA is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International]((https://creativecommons.org/licenses/by-nc-sa/4.0/)) license.
