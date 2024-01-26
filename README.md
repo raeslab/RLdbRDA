@@ -60,4 +60,4 @@ Any contributions you make are **greatly appreciated**.
 
 ## Contact
 
-RLdbRDA was developed by [Sebastian Proost](https://sebastian.proost.science/) at the [RaesLab](https://raeslab.sites.vib.be/en) and was adopted from code written by [Sara Vieira-Silva](https://saravsilva.github.io/). RLdbRDA is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International]((https://creativecommons.org/licenses/by-nc-sa/4.0/)) license.
+RLdbRDA was developed by [Sebastian Proost](https://sebastian.proost.science/) at the [RaesLab](https://raeslab.sites.vib.be/en) and was adopted from code written by [Sara Vieira-Silva](https://saravsilva.github.io/). RLdbRDA is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
