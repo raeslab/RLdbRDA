@@ -4,7 +4,10 @@
 
 # RLdbRDA: RaesLab distance-based Redundancy Analysis
 
-The RLdbRDA package provides a streamlined workflow for performing distance-based redundancy analysis (db-RDA) as is done in the RaesLab on microbial datasets, enabling researchers to identify and visualize the influence of metadata variables on community composition.
+The RLdbRDA package streamlines the process of conducting distance-based redundancy analysis (db-RDA) as practiced in the RaesLab, particularly for microbial datasets. It assists researchers in identifying and visualizing the impact of metadata variables on community composition.
+
+This package employs a two-step procedure. Initially, the influence of each variable on the community composition is individually assessed using the `capscale` function from the `vegan` package. Subsequently, a stepwise procedure is employed to determine which variables, having shown significant effects in the initial step, exert the most substantial influence. For instance, if **Body Mass Index (BMI)** emerges as a significant variable with the largest effect, the process then iterates to identify another variable that, in combination with **BMI**, has the greatest combined effect (e.g., **age**). This iterative process continues, adding one variable at a time (e.g., **BMI** combined with **age**, and so on), until no further variables demonstrate a significant combined effect.
+
 
 ## Installation
 
@@ -60,4 +63,7 @@ Any contributions you make are **greatly appreciated**.
 
 ## Contact
 
-RLdbRDA was developed by [Sebastian Proost](https://sebastian.proost.science/) at the [RaesLab](https://raeslab.sites.vib.be/en) and was adopted from code written by [Sara Vieira-Silva](https://saravsilva.github.io/). RLdbRDA is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+RLdbRDA was developed by [Sebastian Proost](https://sebastian.proost.science/) at the [RaesLab](https://raeslab.sites.vib.be/en) and was adopted from code written by [Sara Vieira-Silva](https://saravsilva.github.io/).
+
+For commercial access inquiries, please contact [Jeroen Raes](mailto:jeroen.raes@kuleuven.vib.be).
+
