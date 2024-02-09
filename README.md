@@ -12,7 +12,7 @@ This package employs a two-step procedure. Initially, the influence of each vari
 ## Installation
 
 
-LRdbRDA needs to be installed directly from GitHub using devtools. From an R console enter the commands below.
+RLdbRDA needs to be installed directly from GitHub using devtools. From an R console enter the commands below.
 
 
 ```commandline
