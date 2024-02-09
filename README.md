@@ -17,13 +17,13 @@ LRdbRDA needs to be installed directly from GitHub using devtools. From an R con
 
 ```commandline
 library(devtools)
-install_github("raeslab/LRdbRDA")
+install_github("raeslab/RLdbRDA")
 ```
 
 If you are using ```renv```, instead use the commands below to install this package.
 
 ```commandline
-renv::install("raeslab/LRdbRDA")
+renv::install("raeslab/RLdbRDA")
 ```
 
 
