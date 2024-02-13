@@ -31,7 +31,7 @@ renv::install("raeslab/RLdbRDA")
 
 To run RLdbRDA two dataframes are needed: one with the microbial abundances and one with metadata. In both cases rows should be samples/subject and columns microbiota and metadata features respectively. 
 
-Off note, it is strongly recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. Furthermore, RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
+Of note: it is strongly recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. Furthermore, RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
 
 ### Example
 
