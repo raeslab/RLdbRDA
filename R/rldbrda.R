@@ -106,6 +106,7 @@ get_r2 <- function(distmat, meta) {
 #'
 #' @importFrom vegan capscale
 #' @importFrom vegan ordiR2step
+#' @importFrom stats formula
 get_cumul <- function(distmat, meta) {
   mod0=capscale(distmat ~ 1) #H0: unconstrained ordination
   mod1=capscale(distmat ~ ., data=meta) #H1: full constrained ordination, all metadata
