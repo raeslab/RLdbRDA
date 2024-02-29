@@ -12,18 +12,18 @@ This package employs a two-step procedure. Initially, the influence of each vari
 ## Installation
 
 
-LRdbRDA needs to be installed directly from GitHub using devtools. From an R console enter the commands below.
+RLdbRDA needs to be installed directly from GitHub using devtools. From an R console enter the commands below.
 
 
 ```commandline
 library(devtools)
-install_github("raeslab/LRdbRDA")
+install_github("raeslab/RLdbRDA")
 ```
 
 If you are using ```renv```, instead use the commands below to install this package.
 
 ```commandline
-renv::install("raeslab/LRdbRDA")
+renv::install("raeslab/RLdbRDA")
 ```
 
 
@@ -31,7 +31,7 @@ renv::install("raeslab/LRdbRDA")
 
 To run RLdbRDA two dataframes are needed: one with the microbial abundances and one with metadata. In both cases rows should be samples/subject and columns microbiota and metadata features respectively. 
 
-Off note, it is strongly recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. Furthermore, RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
+Of note: it is strongly recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. Furthermore, RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
 
 ### Example
 
