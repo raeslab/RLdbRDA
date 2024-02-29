@@ -1,7 +1,7 @@
 Package: RLdbRDA
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 0.1.1
 Author: Sebastian Proost
 Maintainer: Sebastian Proost <sebastian.proost@gmail.com>
 Description: More about what it does (maybe more than one line)

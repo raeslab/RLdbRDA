@@ -329,7 +329,7 @@ plot_dbrda <- function(plot_data) {
     guides(alpha="none") + # Hide alpha legend
     scale_fill_manual(values=c("#60A68B", "#1F4068"),
                       labels=c(bquote(R^2), bquote('Cumulative' ~ R^2))) +
-    scale_alpha_continuous(range = c(0.5, 1))
+    scale_alpha_continuous(range = c(0.5, 1), limits = c(0, 1))
 
   return(g)
 }
