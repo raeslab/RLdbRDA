@@ -33,6 +33,9 @@ To run RLdbRDA two dataframes are needed: one with the microbial abundances and 
 
 Of note: it is strongly recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. Furthermore, RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
 
+Column headers need to be compatible with glm formulas, to this end `make.names` can be used to quickly remove unsupported characters from the column names.
+
+
 ### Example
 
 ```R
