@@ -25,7 +25,7 @@ If you are using ```renv```, instead use the commands below to install this pack
 ```commandline
 renv::install("raeslab/RLdbRDA")
 ```
-
+In case you get an error `GitHub authentication credentials are not available`. You might need to install the package 'gitcreds' first using ```renv::install('gitcreds')```. Install this package and retry the command above.
 
 ## Usage
 
