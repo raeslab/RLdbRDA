@@ -31,9 +31,10 @@ In case you get an error `GitHub authentication credentials are not available`. 
 
 To run RLdbRDA two dataframes are needed: one with the microbial abundances and one with metadata. In both cases rows should be samples/subject and columns microbiota and metadata features respectively. 
 
-Of note: it is strongly recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. Furthermore, RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
-
-Column headers need to be compatible with glm formulas, to this end `make.names` can be used to quickly remove unsupported characters from the column names.
+### Notes
+  * It is recommended to **remove strongly correlated features from the metadata** before running RLdbRDA. 
+  * RLdbRDA cannot handle missing values in the metadata. **Features with many missing values should be excluded** first, next **samples/subjects with incomplete cases should be removed** (or imputed if possible).
+  * Column headers need to be compatible with glm formulas, to this end `make.names` can be used to quickly remove unsupported characters from the column names. (An error will be thrown if the column names are invalid)
 
 
 ### Example

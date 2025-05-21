@@ -1,7 +1,7 @@
 Package: RLdbRDA
 Type: Package
 Title: Distance Based Redundancy Analysis
-Version: 0.1.2
+Version: 0.1.3
 Author: Sebastian Proost
 Maintainer: Sebastian Proost <sebastian.proost@gmail.com>
 Description: Implementation of the Distance Based Redundancy Analysis as often used in the RaesLab.

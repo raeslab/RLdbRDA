@@ -3,7 +3,7 @@
 #'
 #' This internal function checks if the input data frame matches the corresponding metadata
 #' in terms of row names and also verifies whether the metadata contains any missing
-#' values.
+#' values. It ensures that the metadata column names are valid R names.
 #'
 #' @param df A data frame containing the data to be validated.
 #' @param meta A data frame containing metadata associated with the data. Both `df` and
@@ -19,6 +19,11 @@ validate_input <- function(df, meta) {
   if (any(is.na(meta))) {
     stop("Missing values found in metadata. Metadata cannot contain missing values.")
   }
+
+  if (!all(colnames(meta) == make.names(colnames(meta)) )) {
+    stop("Column names in metadata contain invalid characters. Use make.names() to fix them.")
+  }
+
 }
 
 #' Calculate R-squared Values for a Single Feature

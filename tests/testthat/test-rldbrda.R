@@ -26,3 +26,12 @@ test_that("Plot dbRDA works", {
 
   expect_no_error(plot_dbrda(plot_data))
 })
+
+test_that("Validation colnames metadata", {
+  data(varespec)
+  data(varechem)
+
+  colnames(varechem)[1] <- "N test"
+
+  expect_error(rldbrda(varespec, varechem))
+})
