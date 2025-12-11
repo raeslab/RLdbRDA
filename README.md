@@ -27,6 +27,8 @@ renv::install("raeslab/RLdbRDA")
 ```
 In case you get an error `GitHub authentication credentials are not available`. You might need to install the package 'gitcreds' first using ```renv::install('gitcreds')```. Install this package and retry the command above.
 
+**Note: depending on the packages which have been installed and if additional packages need to be installed from source or the binaries are available for your system the installation can take up to a few minutes.**
+
 ## Usage
 
 To run RLdbRDA two dataframes are needed: one with the microbial abundances and one with metadata. In both cases rows should be samples/subject and columns microbiota and metadata features respectively. 
@@ -38,6 +40,8 @@ To run RLdbRDA two dataframes are needed: one with the microbial abundances and 
 
 
 ### Example
+
+The example below should complete in under a minute on modern hardware, but on large datasets with many features in the metadata this can go up to several hours. It is recommended to remove correlated features from the metadata as much as possible before running RLdbRDA.
 
 ```R
 library(RLdbRDA)
